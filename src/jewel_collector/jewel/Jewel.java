@@ -1,8 +1,10 @@
 package jewel_collector.jewel;
 
+import com.mc322.jewel_collector.items.Item;
+
 import jewel_collector.environment.Point;
 
-public class Jewel {
+public class Jewel implements Item {
 	Point position;
 	JewelType type;
 	
@@ -11,10 +13,12 @@ public class Jewel {
 		this.type = type;
 	}
 	
+	@Override
 	public int getX() {
 		return position.getX();
 	}
 	
+	@Override
 	public int getY() {
 		return position.getY();
 	}

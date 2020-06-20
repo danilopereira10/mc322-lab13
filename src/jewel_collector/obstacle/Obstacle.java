@@ -1,8 +1,10 @@
 package jewel_collector.obstacle;
 
+import com.mc322.jewel_collector.items.Item;
+
 import jewel_collector.environment.Point;
 
-public class Obstacle {
+public class Obstacle implements Item {
 	Point position;
 	ObstacleType type;
 	
@@ -11,10 +13,12 @@ public class Obstacle {
 		this.type = type;
 	}
 	
+	@Override
 	public int getX() {
 		return position.getX();
 	}
 	
+	@Override
 	public int getY() {
 		return position.getY();
 	}
