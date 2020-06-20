@@ -3,12 +3,12 @@ package jewel_collector;
 import java.util.ArrayList;
 
 import com.mc322.jewel_collector.items.Item;
+import com.mc322.jewel_collector.items.ItemType;
 
 import jewel_collector.environment.Map;
 import jewel_collector.environment.Point;
 import jewel_collector.jewel.Bag;
 import jewel_collector.jewel.Jewel;
-import jewel_collector.jewel.JewelType;
 import printer.Printer;
 
 public class Robot implements Item {
@@ -29,6 +29,11 @@ public class Robot implements Item {
 	@Override
 	public int getY() {
 		return position.getY();
+	}
+	
+	@Override
+	public ItemType getItemType() {
+		return ItemType.ROBOT;
 	}
 	
 	public void goLeft() {
