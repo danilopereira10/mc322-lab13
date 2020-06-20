@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.mc322.jewel_collector.items.Item;
+
 import jewel_collector.environment.Map;
 import jewel_collector.environment.Point;
 import jewel_collector.jewel.Jewel;
@@ -52,7 +54,7 @@ public class JewelCollector {
 			Printer.getInstance().print(" Enter the command : ");
 			String command = keyboard.nextLine() ;
 			
-			String[][] matrix = map.getMatrix();
+			Item[][] matrix = map.getMatrix();
 			int x = robot.getX();
 			int y = robot.getY();
 			map.clearPosition(new Point(robot.getX(), robot.getY()));
