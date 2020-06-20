@@ -64,7 +64,7 @@ public class Map {
 	public void updateRobotPosition(Robot robot) {
 		int x = robot.getX();
 		int y = robot.getY();
-		matrix[y][x] = new Object();
+		matrix[y][x] = robot;
 	}
 	
 	public void clearPosition(Point p) {
