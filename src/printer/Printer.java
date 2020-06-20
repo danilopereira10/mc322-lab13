@@ -1,5 +1,7 @@
 package printer;
 
+import com.mc322.jewel_collector.items.Item;
+
 public class Printer {
 	private Printer() {}
 	
@@ -21,7 +23,7 @@ public class Printer {
 		print("Pontuação total: " + totalScore);
 	}
 	
-	public void printMap(String[][] matrix) {
+	public void printMap(Item[][] matrix) {
 		for (String[] line : matrix) {
 			print(java.util.Arrays.toString(line));
 		}

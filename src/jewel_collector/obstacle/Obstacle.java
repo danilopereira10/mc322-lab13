@@ -29,13 +29,8 @@ public class Obstacle implements Item {
 		return ItemType.OBSTACLE;
 	}
 	
-	public static boolean isObstacle(String square) {
-		for (ObstacleType obstacleType : ObstacleType.values()) {
-			if (square.equals(obstacleType.toString())) {
-				return true;
-			}
-		}
-		return false;
+	public static boolean isObstacle(Item item) {
+		return item.getItemType().equals(ItemType.OBSTACLE);
 	}
 	
 	@Override
