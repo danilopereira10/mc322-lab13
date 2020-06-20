@@ -2,6 +2,8 @@ package jewel_collector;
 
 import java.util.ArrayList;
 
+import com.mc322.jewel_collector.items.Item;
+
 import jewel_collector.environment.Map;
 import jewel_collector.environment.Point;
 import jewel_collector.jewel.Bag;
@@ -9,7 +11,7 @@ import jewel_collector.jewel.Jewel;
 import jewel_collector.jewel.JewelType;
 import printer.Printer;
 
-public class Robot {
+public class Robot implements Item {
 	private static final String ROBOT_TEXT = "ME";	
 	private Point position;
 	private Bag bag;
@@ -19,10 +21,12 @@ public class Robot {
 		bag = new Bag(new ArrayList<>());
 	}
 	
+	@Override
 	public int getX() {
 		return position.getX();
 	}
 	
+	@Override
 	public int getY() {
 		return position.getY();
 	}
