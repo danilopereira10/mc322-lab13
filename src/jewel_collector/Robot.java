@@ -48,11 +48,9 @@ public class Robot implements Item {
 	}
 	
 	public void collectJewelUnderCondition(boolean condition, int x, int y, Map map) {
-		String[][] matrix = map.getMatrix();
+		Item[][] matrix = map.getMatrix();
 		if (condition && Jewel.isJewel(matrix[y][x])) {
-			Point jewelPosition = new Point(x, y);
-			JewelType jewelType = JewelType.getJewelTypeOf(matrix[y][x]);
-			Jewel jewel = new Jewel(jewelPosition, jewelType);
+			Jewel jewel = (Jewel)matrix[y][x];
 			collectJewel(jewel);
 			map.clearPosition(new Point(jewel.getX(), jewel.getY()));
 		}

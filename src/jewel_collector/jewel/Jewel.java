@@ -1,16 +1,17 @@
 package jewel_collector.jewel;
 
 import com.mc322.jewel_collector.items.Item;
+import com.mc322.jewel_collector.items.ItemType;
 
 import jewel_collector.environment.Point;
 
 public class Jewel implements Item {
 	Point position;
-	JewelType type;
+	JewelType jewelType;
 	
 	public Jewel(Point position, JewelType type) {
 		this.position = position;
-		this.type = type;
+		this.jewelType = type;
 	}
 	
 	@Override
@@ -24,20 +25,24 @@ public class Jewel implements Item {
 	}
 	
 	public int getScore() {
-		return type.getScore();
+		return jewelType.getScore();
 	}
 	
-	public static boolean isJewel(String square) {
-		for (JewelType jewelType : JewelType.values()) {
-			if (square.equals(jewelType.toString())) {
-				return true;
-			}
-		}
-		return false;
+	public JewelType getJewelType() {
+		return jewelType;
+	}
+	
+	public static boolean isJewel(Item item) {
+		return item.getItemType().equals(ItemType.JEWEL);
 	}
 	
 	@Override
 	public String toString() {
-		return type.toString();
+		return jewelType.toString();
+	}
+
+	@Override
+	public ItemType getItemType() {
+		return ItemType.JEWEL;
 	}
 }
