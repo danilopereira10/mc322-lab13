@@ -1,4 +1,4 @@
-package printer;
+package com.mc322.printer;
 
 import com.mc322.jewel_collector.items.Item;
 

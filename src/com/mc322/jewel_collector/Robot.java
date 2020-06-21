@@ -1,15 +1,14 @@
-package jewel_collector;
+package com.mc322.jewel_collector;
 
 import java.util.ArrayList;
 
+import com.mc322.jewel_collector.environment.Map;
+import com.mc322.jewel_collector.environment.Point;
 import com.mc322.jewel_collector.items.Item;
 import com.mc322.jewel_collector.items.ItemType;
-
-import jewel_collector.environment.Map;
-import jewel_collector.environment.Point;
-import jewel_collector.jewel.Bag;
-import jewel_collector.jewel.Jewel;
-import printer.Printer;
+import com.mc322.jewel_collector.jewel.Bag;
+import com.mc322.jewel_collector.jewel.Jewel;
+import com.mc322.printer.Printer;
 
 public class Robot implements Item {
 	private static final String ROBOT_TEXT = "ME";	

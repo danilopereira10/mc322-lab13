@@ -1,4 +1,4 @@
-package jewel_collector.environment;
+package com.mc322.jewel_collector.environment;
 
 public class Point {
 	private int x;

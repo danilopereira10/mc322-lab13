@@ -1,4 +1,4 @@
-package jewel_collector.obstacle;
+package com.mc322.jewel_collector.obstacle;
 
 public enum ObstacleType {
 	WATER("##"),
