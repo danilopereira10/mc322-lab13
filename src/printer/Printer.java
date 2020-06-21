@@ -2,6 +2,8 @@ package printer;
 
 import com.mc322.jewel_collector.items.Item;
 
+import jewel_collector.jewel.Jewel;
+
 public class Printer {
 	private Printer() {}
 	
@@ -15,17 +17,29 @@ public class Printer {
 	}
 	
 	public void print(String message) {
+		System.out.print(message + " ");
+	}
+	
+	public void printLine() {
+		printLine("");
+	}
+	
+	public void printLine(String message) {
 		System.out.println(message);
 	}
 	
 	public void printBagInfo(int amountOfJewels, int totalScore) {
-		print("Quantidade de joias: " + amountOfJewels);
-		print("Pontuação total: " + totalScore);
+		printLine("Quantidade de joias: " + amountOfJewels);
+		printLine("Pontuação total: " + totalScore);
 	}
 	
 	public void printMap(Item[][] matrix) {
-		for (String[] line : matrix) {
-			print(java.util.Arrays.toString(line));
+		for (Item[] items : matrix) {
+			for (Item item : items) {
+				Jewel jewel = (Jewel) item;
+				print(jewel.toString() + " ");
+			}
+			printLine();
 		}
 	}
 }

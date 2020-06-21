@@ -51,7 +51,7 @@ public class JewelCollector {
 		boolean running = true;
 		
 		while (running) {
-			Printer.getInstance().print(" Enter the command : ");
+			Printer.getInstance().printLine(" Enter the command : ");
 			String command = keyboard.nextLine() ;
 			
 			Item[][] matrix = map.getMatrix();
