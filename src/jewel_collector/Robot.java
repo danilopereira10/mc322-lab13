@@ -15,10 +15,12 @@ public class Robot implements Item {
 	private static final String ROBOT_TEXT = "ME";	
 	private Point position;
 	private Bag bag;
+	private int hp;
 	
 	public Robot(Point position) {
 		this.position = position;
 		bag = new Bag(new ArrayList<>());
+		hp = 5;
 	}
 	
 	@Override
@@ -37,19 +39,31 @@ public class Robot implements Item {
 	}
 	
 	public void goLeft() {
-		position.setX(position.getX() - 1); 
+		if (hp > 0) {
+			hp--;
+			position.setX(position.getX() - 1);
+		}
 	}
 	
 	public void goRight() {
-		position.setX(position.getX() + 1);
+		if (hp > 0) {
+			hp--;
+			position.setX(position.getX() + 1);
+		}
 	}
 	
 	public void goUp() {
-		position.setY(position.getY() - 1);
+		if (hp > 0) {
+			hp--;
+			position.setY(position.getY() - 1);
+		}
 	}
 	
 	public void goDown() {
-		position.setY(position.getY() + 1);
+		if (hp > 0) {
+			hp--;
+			position.setY(position.getY() + 1);
+		}
 	}
 	
 	public void collectJewelUnderCondition(boolean condition, int x, int y, Map map) {
