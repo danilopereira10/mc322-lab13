@@ -1,9 +1,8 @@
-package jewel_collector.jewel;
+package com.mc322.jewel_collector.jewel;
 
+import com.mc322.jewel_collector.environment.Point;
 import com.mc322.jewel_collector.items.Item;
 import com.mc322.jewel_collector.items.ItemType;
-
-import jewel_collector.environment.Point;
 
 public class Jewel implements Item {
 	Point position;

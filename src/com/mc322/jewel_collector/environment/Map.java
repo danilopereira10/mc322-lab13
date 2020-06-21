@@ -1,12 +1,11 @@
-package jewel_collector.environment;
+package com.mc322.jewel_collector.environment;
 
 import java.util.List;
 
+import com.mc322.jewel_collector.Robot;
 import com.mc322.jewel_collector.items.Item;
-
-import jewel_collector.Robot;
-import jewel_collector.jewel.Jewel;
-import jewel_collector.obstacle.Obstacle;
+import com.mc322.jewel_collector.jewel.Jewel;
+import com.mc322.jewel_collector.obstacle.Obstacle;
 
 public class Map {
 	public static final Item EMPTY_SQUARE = null;

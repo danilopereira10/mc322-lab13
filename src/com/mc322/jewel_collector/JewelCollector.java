@@ -1,18 +1,17 @@
-package jewel_collector;
+package com.mc322.jewel_collector;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.mc322.jewel_collector.environment.Map;
+import com.mc322.jewel_collector.environment.Point;
 import com.mc322.jewel_collector.items.Item;
-
-import jewel_collector.environment.Map;
-import jewel_collector.environment.Point;
-import jewel_collector.jewel.Jewel;
-import jewel_collector.jewel.JewelType;
-import jewel_collector.obstacle.Obstacle;
-import jewel_collector.obstacle.ObstacleType;
-import printer.Printer;
+import com.mc322.jewel_collector.jewel.Jewel;
+import com.mc322.jewel_collector.jewel.JewelType;
+import com.mc322.jewel_collector.obstacle.Obstacle;
+import com.mc322.jewel_collector.obstacle.ObstacleType;
+import com.mc322.printer.Printer;
 
 public class JewelCollector {
 

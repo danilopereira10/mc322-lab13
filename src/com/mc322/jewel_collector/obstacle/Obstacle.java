@@ -1,9 +1,8 @@
-package jewel_collector.obstacle;
+package com.mc322.jewel_collector.obstacle;
 
+import com.mc322.jewel_collector.environment.Point;
 import com.mc322.jewel_collector.items.Item;
 import com.mc322.jewel_collector.items.ItemType;
-
-import jewel_collector.environment.Point;
 
 public class Obstacle implements Item {
 	Point position;

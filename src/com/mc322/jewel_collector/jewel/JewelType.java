@@ -1,4 +1,4 @@
-package jewel_collector.jewel;
+package com.mc322.jewel_collector.jewel;
 
 public enum JewelType {
 	RED(100, "JR"),
