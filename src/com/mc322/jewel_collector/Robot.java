@@ -8,6 +8,8 @@ import com.mc322.jewel_collector.items.Item;
 import com.mc322.jewel_collector.items.ItemType;
 import com.mc322.jewel_collector.jewel.Bag;
 import com.mc322.jewel_collector.jewel.Jewel;
+import com.mc322.jewel_collector.jewel.JewelType;
+import com.mc322.jewel_collector.rechargable.BlueJewel;
 import com.mc322.jewel_collector.rechargable.Rechargable;
 import com.mc322.printer.Printer;
 
@@ -85,8 +87,9 @@ public class Robot implements Item {
 	}
 	
 	public void useItem() {
-		Item item = null;
+		Item item = new Jewel(new Point(0, 0), JewelType.GREEN);
 		if (item instanceof Rechargable) {
+			System.out.println("rechargable");
 			//recharge
 		}
 	}
