@@ -98,6 +98,8 @@ public class JewelCollector {
 				x = robot.getX() + 1;
 				y = robot.getY();
 				robot.collectJewelUnderCondition(condition, x, y, map);
+			} else if (command.compareTo("u") == 0) {
+				robot.useItem();
 			}
 			
 			map.updateRobotPosition(robot);

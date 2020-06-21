@@ -8,6 +8,7 @@ import com.mc322.jewel_collector.items.Item;
 import com.mc322.jewel_collector.items.ItemType;
 import com.mc322.jewel_collector.jewel.Bag;
 import com.mc322.jewel_collector.jewel.Jewel;
+import com.mc322.jewel_collector.rechargable.Rechargable;
 import com.mc322.printer.Printer;
 
 public class Robot implements Item {
@@ -81,6 +82,13 @@ public class Robot implements Item {
 	
 	public void showTotalOfJewels() {
 		Printer.getInstance().printBagInfo(bag.getAmountOfJewels(), bag.getTotalScore());
+	}
+	
+	public void useItem() {
+		Item item = null;
+		if (item instanceof Rechargable) {
+			//recharge
+		}
 	}
 	
 	@Override
