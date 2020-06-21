@@ -2,8 +2,6 @@ package printer;
 
 import com.mc322.jewel_collector.items.Item;
 
-import jewel_collector.jewel.Jewel;
-
 public class Printer {
 	private Printer() {}
 	
