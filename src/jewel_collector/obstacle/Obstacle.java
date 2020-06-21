@@ -1,8 +1,11 @@
 package jewel_collector.obstacle;
 
+import com.mc322.jewel_collector.items.Item;
+import com.mc322.jewel_collector.items.ItemType;
+
 import jewel_collector.environment.Point;
 
-public class Obstacle {
+public class Obstacle implements Item {
 	Point position;
 	ObstacleType type;
 	
@@ -11,21 +14,23 @@ public class Obstacle {
 		this.type = type;
 	}
 	
+	@Override
 	public int getX() {
 		return position.getX();
 	}
 	
+	@Override
 	public int getY() {
 		return position.getY();
 	}
 	
-	public static boolean isObstacle(String square) {
-		for (ObstacleType obstacleType : ObstacleType.values()) {
-			if (square.equals(obstacleType.toString())) {
-				return true;
-			}
-		}
-		return false;
+	@Override
+	public ItemType getItemType() {
+		return ItemType.OBSTACLE;
+	}
+	
+	public static boolean isObstacle(Item item) {
+		return item != null && item.getItemType().equals(ItemType.OBSTACLE);
 	}
 	
 	@Override

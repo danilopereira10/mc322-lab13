@@ -2,14 +2,16 @@ package jewel_collector;
 
 import java.util.ArrayList;
 
+import com.mc322.jewel_collector.items.Item;
+import com.mc322.jewel_collector.items.ItemType;
+
 import jewel_collector.environment.Map;
 import jewel_collector.environment.Point;
 import jewel_collector.jewel.Bag;
 import jewel_collector.jewel.Jewel;
-import jewel_collector.jewel.JewelType;
 import printer.Printer;
 
-public class Robot {
+public class Robot implements Item {
 	private static final String ROBOT_TEXT = "ME";	
 	private Point position;
 	private Bag bag;
@@ -19,12 +21,19 @@ public class Robot {
 		bag = new Bag(new ArrayList<>());
 	}
 	
+	@Override
 	public int getX() {
 		return position.getX();
 	}
 	
+	@Override
 	public int getY() {
 		return position.getY();
+	}
+	
+	@Override
+	public ItemType getItemType() {
+		return ItemType.ROBOT;
 	}
 	
 	public void goLeft() {
@@ -44,11 +53,9 @@ public class Robot {
 	}
 	
 	public void collectJewelUnderCondition(boolean condition, int x, int y, Map map) {
-		String[][] matrix = map.getMatrix();
+		Item[][] matrix = map.getMatrix();
 		if (condition && Jewel.isJewel(matrix[y][x])) {
-			Point jewelPosition = new Point(x, y);
-			JewelType jewelType = JewelType.getJewelTypeOf(matrix[y][x]);
-			Jewel jewel = new Jewel(jewelPosition, jewelType);
+			Jewel jewel = (Jewel)matrix[y][x];
 			collectJewel(jewel);
 			map.clearPosition(new Point(jewel.getX(), jewel.getY()));
 		}
