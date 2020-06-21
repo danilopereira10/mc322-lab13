@@ -33,7 +33,7 @@ public class Jewel implements Item {
 	}
 	
 	public static boolean isJewel(Item item) {
-		return item.getItemType().equals(ItemType.JEWEL);
+		return item != null && item.getItemType().equals(ItemType.JEWEL);
 	}
 	
 	@Override

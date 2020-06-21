@@ -9,7 +9,7 @@ import jewel_collector.jewel.Jewel;
 import jewel_collector.obstacle.Obstacle;
 
 public class Map {
-	private static final Item EMPTY_SQUARE = null;
+	public static final Item EMPTY_SQUARE = null;
 	private Item[][] matrix;
 	
 	public Map(int width, int height) {

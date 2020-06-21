@@ -36,8 +36,11 @@ public class Printer {
 	public void printMap(Item[][] matrix) {
 		for (Item[] items : matrix) {
 			for (Item item : items) {
-				Jewel jewel = (Jewel) item;
-				print(jewel.toString() + " ");
+				if (item != null) { 
+					print(item.toString() + " ");
+				} else {
+					print("-- ");
+				}
 			}
 			printLine();
 		}

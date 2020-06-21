@@ -30,7 +30,7 @@ public class Obstacle implements Item {
 	}
 	
 	public static boolean isObstacle(Item item) {
-		return item.getItemType().equals(ItemType.OBSTACLE);
+		return item != null && item.getItemType().equals(ItemType.OBSTACLE);
 	}
 	
 	@Override
