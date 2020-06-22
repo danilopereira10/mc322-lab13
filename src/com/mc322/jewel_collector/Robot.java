@@ -45,6 +45,10 @@ public class Robot implements Item {
 		this.map = map;
 	}
 	
+	public int getHp() {
+		return hp;
+	}
+	
 	public void goLeft() {
 		if (hp > 0) {
 			hp--;

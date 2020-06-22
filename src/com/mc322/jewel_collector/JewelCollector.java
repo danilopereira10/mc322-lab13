@@ -107,6 +107,8 @@ public class JewelCollector {
 			
 			map.updateRobotPosition(robot);
 			Printer.getInstance().printMap(map.getMatrix());
+			Printer.getInstance().printLine("Robot hp: " + robot.getHp());
+			robot.showTotalOfJewels();
 		}
 		
 		keyboard.close();
