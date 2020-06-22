@@ -3,6 +3,7 @@ package com.mc322.jewel_collector.environment;
 import java.util.List;
 
 import com.mc322.jewel_collector.Robot;
+import com.mc322.jewel_collector.exceptions.PositionAlreadyInUseException;
 import com.mc322.jewel_collector.items.Item;
 import com.mc322.jewel_collector.jewel.Jewel;
 import com.mc322.jewel_collector.obstacle.Obstacle;
@@ -60,9 +61,12 @@ public class Map {
 		matrix[y][x] = obstacle;
 	}
 	
-	public void updateRobotPosition(Robot robot) {
+	public void updateRobotPosition(Robot robot) throws ArrayIndexOutOfBoundsException, PositionAlreadyInUseException {
 		int x = robot.getX();
 		int y = robot.getY();
+		if (matrix[y][x] != null) {
+			throw new PositionAlreadyInUseException();
+		}
 		matrix[y][x] = robot;
 	}
 	

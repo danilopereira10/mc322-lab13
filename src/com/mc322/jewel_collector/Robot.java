@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.mc322.jewel_collector.environment.Map;
 import com.mc322.jewel_collector.environment.Point;
+import com.mc322.jewel_collector.exceptions.PositionAlreadyInUseException;
 import com.mc322.jewel_collector.items.Item;
 import com.mc322.jewel_collector.items.ItemType;
 import com.mc322.jewel_collector.jewel.Bag;
@@ -50,31 +51,63 @@ public class Robot implements Item {
 	}
 	
 	public void goLeft() {
+		int x = position.getX();
 		if (hp > 0) {
-			hp--;
-			position.setX(position.getX() - 1);
+			position.setX(x - 1);
+			try {
+				move();
+				hp--;
+				map.clearPosition(new Point(x, position.getY()));
+			} catch (ArrayIndexOutOfBoundsException | PositionAlreadyInUseException e) {
+				position.setX(x);
+			}
 		}
 	}
 	
 	public void goRight() {
+		int x = position.getX();
 		if (hp > 0) {
-			hp--;
-			position.setX(position.getX() + 1);
+			position.setX(x + 1);
+			try {
+				move();
+				hp--;
+				map.clearPosition(new Point(x, position.getY()));
+			} catch (ArrayIndexOutOfBoundsException | PositionAlreadyInUseException e) {
+				position.setX(x);
+			}
 		}
 	}
 	
 	public void goUp() {
+		int y = position.getY();
 		if (hp > 0) {
-			hp--;
-			position.setY(position.getY() - 1);
+			position.setY(y - 1);
+			try {
+				move();
+				hp--;
+				map.clearPosition(new Point(position.getX(), y));
+			} catch (ArrayIndexOutOfBoundsException | PositionAlreadyInUseException e) {
+				position.setY(y);
+			}
 		}
 	}
 	
 	public void goDown() {
+		int y = position.getY();
 		if (hp > 0) {
-			hp--;
-			position.setY(position.getY() + 1);
+			position.setY(y + 1);
+			try {
+				move();
+				hp--;
+				map.clearPosition(new Point(position.getX(), y));
+			} catch (ArrayIndexOutOfBoundsException | PositionAlreadyInUseException e) {
+				position.setY(y);
+			}
 		}
+	}
+	
+	private void move() throws ArrayIndexOutOfBoundsException, PositionAlreadyInUseException {
+		map.updateRobotPosition(this);
 	}
 	
 	public void collectJewelUnderCondition(boolean condition, int x, int y) {
