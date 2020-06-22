@@ -109,7 +109,7 @@ public class Robot implements Item {
 			if (item instanceof BlueJewel) {
 				hp += 5;
 				Jewel jewel = (Jewel) item;
-				matrix[jewel.getY()][jewel.getX()] = null;
+				collectJewelUnderCondition(true, jewel.getX(), jewel.getY());
 			} else if (item instanceof Tree) {
 				hp += 3;
 			}
