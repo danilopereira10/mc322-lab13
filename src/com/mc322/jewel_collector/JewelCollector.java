@@ -11,6 +11,8 @@ import com.mc322.jewel_collector.jewel.Jewel;
 import com.mc322.jewel_collector.jewel.JewelType;
 import com.mc322.jewel_collector.obstacle.Obstacle;
 import com.mc322.jewel_collector.obstacle.ObstacleType;
+import com.mc322.jewel_collector.rechargable.BlueJewel;
+import com.mc322.jewel_collector.rechargable.Tree;
 import com.mc322.printer.Printer;
 
 public class JewelCollector {
@@ -23,8 +25,8 @@ public class JewelCollector {
 		jewels.add(new Jewel(new Point(8,8), JewelType.RED));
 		jewels.add(new Jewel(new Point(9,1), JewelType.GREEN));
 		jewels.add(new Jewel(new Point(7,6), JewelType.GREEN));
-		jewels.add(new Jewel(new Point(3,4), JewelType.BLUE));
-		jewels.add(new Jewel(new Point(2,1), JewelType.BLUE));
+		jewels.add(new BlueJewel(new Point(3,4)));
+		jewels.add(new BlueJewel(new Point(2,1)));
 		map.addJewels(jewels);
 		
 		List<Obstacle> obstacles = new ArrayList<>();
@@ -35,15 +37,16 @@ public class JewelCollector {
 		obstacles.add(new Obstacle(new Point(5,4), ObstacleType.WATER));
 		obstacles.add(new Obstacle(new Point(5,5), ObstacleType.WATER));
 		obstacles.add(new Obstacle(new Point(5,6), ObstacleType.WATER));
-		obstacles.add(new Obstacle(new Point(5,9), ObstacleType.TREE));
-		obstacles.add(new Obstacle(new Point(3,9), ObstacleType.TREE));
-		obstacles.add(new Obstacle(new Point(8,3), ObstacleType.TREE));
-		obstacles.add(new Obstacle(new Point(2,5), ObstacleType.TREE));
-		obstacles.add(new Obstacle(new Point(1,4), ObstacleType.TREE));
+		obstacles.add(new Tree(new Point(5,9)));
+		obstacles.add(new Tree(new Point(3,9)));
+		obstacles.add(new Tree(new Point(8,3)));
+		obstacles.add(new Tree(new Point(2,5)));
+		obstacles.add(new Tree(new Point(1,4)));
 		map.addObstacles(obstacles);
 		
 		Point initialPosition = new Point(0, 0);
 		Robot robot = new Robot(initialPosition);
+		robot.setMap(map);
 		map.updateRobotPosition(robot);
 		
 		Scanner keyboard = new Scanner(System.in);
@@ -82,22 +85,22 @@ public class JewelCollector {
 				boolean condition = robot.getY() > 0;
 				x = robot.getX();
 				y = robot.getY() - 1;
-				robot.collectJewelUnderCondition(condition, x, y, map);
+				robot.collectJewelUnderCondition(condition, x, y);
 				
 				condition = robot.getY() <= map.getHeight() - 2;
 				x = robot.getX();
 				y = robot.getY() + 1;
-				robot.collectJewelUnderCondition(condition, x, y, map);
+				robot.collectJewelUnderCondition(condition, x, y);
 				
 				condition = robot.getX() > 0;
 				x = robot.getX() - 1;
 				y = robot.getY();
-				robot.collectJewelUnderCondition(condition, x, y, map);
+				robot.collectJewelUnderCondition(condition, x, y);
 				
 				condition = robot.getX() <= map.getWidth() - 2;
 				x = robot.getX() + 1;
 				y = robot.getY();
-				robot.collectJewelUnderCondition(condition, x, y, map);
+				robot.collectJewelUnderCondition(condition, x, y);
 			} else if (command.compareTo("u") == 0) {
 				robot.useItem();
 			}
