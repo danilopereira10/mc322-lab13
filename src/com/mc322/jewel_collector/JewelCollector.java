@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import com.mc322.jewel_collector.environment.Map;
 import com.mc322.jewel_collector.environment.Point;
+import com.mc322.jewel_collector.exceptions.PositionAlreadyInUseException;
 import com.mc322.jewel_collector.items.Item;
 import com.mc322.jewel_collector.jewel.Jewel;
 import com.mc322.jewel_collector.jewel.JewelType;
@@ -47,7 +48,11 @@ public class JewelCollector {
 		Point initialPosition = new Point(0, 0);
 		Robot robot = new Robot(initialPosition);
 		robot.setMap(map);
-		map.updateRobotPosition(robot);
+		try {
+			map.updateRobotPosition(robot);
+		} catch (ArrayIndexOutOfBoundsException | PositionAlreadyInUseException e) {
+			System.exit(1);
+		}
 		
 		Scanner keyboard = new Scanner(System.in);
 		boolean running = true;
@@ -59,7 +64,6 @@ public class JewelCollector {
 			Item[][] matrix = map.getMatrix();
 			int x = robot.getX();
 			int y = robot.getY();
-			map.clearPosition(new Point(robot.getX(), robot.getY()));
 			
 			if (command.compareTo("quit") == 0) {
 				running = false;	
@@ -105,7 +109,6 @@ public class JewelCollector {
 				robot.useItem();
 			}
 			
-			map.updateRobotPosition(robot);
 			Printer.getInstance().printMap(map.getMatrix());
 			Printer.getInstance().printLine("Robot hp: " + robot.getHp());
 			robot.showTotalOfJewels();

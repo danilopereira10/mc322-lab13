@@ -1,0 +1,1 @@
+package com.mc322.jewel_collector.exceptions;
